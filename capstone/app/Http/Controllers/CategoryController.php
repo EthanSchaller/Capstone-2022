@@ -62,7 +62,16 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        //TEMP
+        $category = \App\category::find($id);
+        $items = Item::orderBy('title','ASC')->paginate(10);
+
+        if($items != null) {
+            return view('categories.TEMP')->with('items', $items)->with('category', $category)->with('cat_id', $id);
+        } else {
+            Session::flash('error', 'Items not found');
+            return redirect()->route('categories.index');
+        }
     }
 
     /**

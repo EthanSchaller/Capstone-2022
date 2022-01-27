@@ -17,7 +17,7 @@ Laravel Project
 @endsection
 
 @section('content')
-	
+	@if(Auth::user())
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<h1>Add New Item</h1>
@@ -40,8 +40,16 @@ Laravel Project
 				</select>
 
 			    {{ Form::label('description', 'Description:', ['style'=>'margin-top:20px']) }}
-			    {{ Form::textarea('description', null, ['class'=>'form-control', 
+			    {{ Form::textarea('description', null, ['class'=>'description', 
 				                                 'data-parsley-required'=>'']) }}
+				<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+				<script>
+					tinymce.init({
+						selector:'textarea.description',
+						width: 700,
+						height: 300
+					});
+				</script>
 
 				{{ Form::label('price', 'Price:', ['style'=>'margin-top:20px']) }}
 			    {{ Form::text('price', null, ['class'=>'form-control', 'style'=>'', 
@@ -66,5 +74,8 @@ Laravel Project
 
 		</div>
 	</div>
-
+@else
+<p>You are currently logged out. Please login to access the website</p>
+<a href='/login' class='btn btn-default' role='button'>Login</a>
+@endif
 @endsection

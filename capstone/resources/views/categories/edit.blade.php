@@ -17,7 +17,7 @@ Laravel Project
 @endsection
 
 @section('content')
-	
+@if(Auth::user())
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<h1>Edit Category</h1>
@@ -46,5 +46,8 @@ Laravel Project
 
 		</div>
 	</div>
-
+	@else
+	<p>You are currently logged out. Please login to access the website</p>
+	<a href='/login' class='btn btn-default' role='button'>Login</a>
+	@endif
 @endsection

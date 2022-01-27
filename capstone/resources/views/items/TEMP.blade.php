@@ -9,7 +9,7 @@ Laravel Project
 @endsection
 
 @section('content')
-
+@if(Auth::user())
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -46,5 +46,8 @@ Laravel Project
         </div>
     </div>
 </div>
-
+@else
+<p>You are currently logged out. Please login to access the website</p>
+<a href='/login' class='btn btn-default' role='button'>Login</a>
+@endif
 @endsection

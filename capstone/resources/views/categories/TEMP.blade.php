@@ -12,7 +12,7 @@ Laravel Project
 @if(Auth::user())
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<h1>All Items</h1>
+			<h1>{{ $category->category }}</h1>
 		</div>
 		<div class="col-md-2">
 			<a href="{{ route('items.create') }}" class="btn btn-lg btn-block btn-primary btn-h1-spacing">Create New Item</a>
@@ -28,26 +28,18 @@ Laravel Project
 				<thead>
 					<th>#</th>
 					<th>Title</th>
-					<th>Created At</th>
-					<th>Last Modified</th>
-					<th></th>
 				</thead>
 				<tbody>
 					<?php 
 						$i = 1;    
 					?>
 					@foreach ($items as $item)
+                        @if($item->category_id == $cat_id)
 						<tr>
 							<th><a href='/items/{{ $item->id }}' class='btn btn-secondary' role='button'>{{ $i++ }}</a></th>
 							<td>{{ $item->title }}</td>
-							<td style="width: 100px;">{{ date('M j, Y', strtotime($item->created_at)) }}</td>
-							<td>{{ date('M j, Y', strtotime($item->updated_at)) }}</td>
-							<td style="width: 175px;"><div style='float:left; margin-right:5px;'><a href="{{ route('items.edit', $item->id) }}" class="btn btn-success btn-sm">Edit</a></div><div style='float:left;'>
-								{!! Form::open(['route' => ['items.destroy', $item->id], 'method'=>'DELETE']) !!}
-							    	{{ Form::submit('Delete', ['class'=>'btn btn-sm btn-danger btn-block', 'style'=>'', 'onclick'=>'return confirm("Are you sure?")']) }}
-								{!! Form::close() !!}</div>
-							</td>
 						</tr>
+                        @endif
 					@endforeach
 				</tbody>
 			</table>

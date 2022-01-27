@@ -17,7 +17,7 @@ Laravel Project
 @endsection
 
 @section('content')
-
+@if(Auth::user())
 	<div class="row">
 		{!! Form::model($item, ['route' => ['items.update', $item->id], 'method'=>'PUT', 'data-parsley-validate' => '', 'files' => true]) !!}
 		<div class="col-md-6 col-md-offset-2">
@@ -95,6 +95,8 @@ Laravel Project
 		</div>
 		{!! Form::close() !!}
 	</div>
-
-
+	@else
+	<p>You are currently logged out. Please login to access the website</p>
+	<a href='/login' class='btn btn-default' role='button'>Login</a>
+	@endif
 @endsection
