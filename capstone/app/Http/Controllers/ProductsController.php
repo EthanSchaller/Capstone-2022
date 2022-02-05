@@ -15,7 +15,7 @@ class ProductsController extends Controller
     public function index()
     {
         $categories = Category::orderBy('category','ASC')->paginate(10);
-        $items = Item::orderBy('title','ASC')->paginate(10);
+        $items = Item::orderBy('id','ASC')->paginate(10);
         return view('products')->with('categories',$categories)->with('items',$items);
     }
 
