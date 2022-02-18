@@ -67,7 +67,7 @@ Laravel Project
 		</div> <!-- end of .col-md-8 -->
 	</div>
 	@else
-	<p>You are currently logged out. Please login to access the website</p>
-	<a href='/login' class='btn btn-default' role='button'>Login</a>
+    <p>You are currently logged out. Please login to access the website</p>
+    <a href='/login' class='btn btn-default' role='button'>Login</a>
 	@endif
 @endsection

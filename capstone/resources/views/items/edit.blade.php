@@ -45,7 +45,6 @@ Laravel Project
 				<script>
 					tinymce.init({
 						selector:'textarea.description',
-						width: 700,
 						height: 300
 					});
 				</script>
@@ -63,7 +62,7 @@ Laravel Project
 											  'data-parsley-required'=>'']) }}
 
 				@if ($item->picture != "")
-				    <p style='margin-top:20px'>Current Image:<br><img src="{{ Storage::url('images/items/'.$item->picture) }}" style='height:100px;' ></p>
+				    <p style='margin-top:20px'>Current Image:<br><img src="{{ Storage::url('images/items/tn_'.$item->picture) }}" style='height:100px;' ></p>
 			    @endif
 
 				{{ Form::label('picture', 'Picture:', ['style'=>'margin-top:20px']) }}
@@ -96,7 +95,7 @@ Laravel Project
 		{!! Form::close() !!}
 	</div>
 	@else
-	<p>You are currently logged out. Please login to access the website</p>
-	<a href='/login' class='btn btn-default' role='button'>Login</a>
+		<p>You are currently logged out. Please login to access the website</p>
+		<a href='/login' class='btn btn-default' role='button'>Login</a>
 	@endif
 @endsection

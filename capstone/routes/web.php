@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('items', '\App\Http\Controllers\ItemController')->middleware('auth');
 Route::resource('categories', '\App\Http\Controllers\CategoryController')->middleware('auth');
-Route::resource('products', '\App\Http\Controllers\ProductsController')->middleware('auth');
+Route::resource('products', '\App\Http\Controllers\ProductsController');
 
 Route::get('/', function () {
     return view('welcome');

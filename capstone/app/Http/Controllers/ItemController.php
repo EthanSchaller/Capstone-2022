@@ -64,12 +64,27 @@ class ItemController extends Controller
         //save image
         if ($request->hasFile('picture')) {
             $image = $request->file('picture');
-
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $location ='images/items/' . $filename;
-
+            $extension = $image->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $tnFilename = "tn_".$filename;
+            $location ='images/items/' . $tnFilename;
             $image = Image::make($image);
+            $image->resize(100, 133);
             Storage::disk('public')->put($location, (string) $image->encode());
+
+            $image = $request->file('picture');
+            $lrgFilename = "lrg_".$filename;
+            $location ='images/items/' . $lrgFilename;
+            $image = Image::make($image);
+            $image->resize(200, 266);
+            Storage::disk('public')->put($location, (string) $image->encode());
+
+            if (isset($item->picture)) {
+                $oldFilename = $item->picture;
+                Storage::delete('public/images/items/tn_'.$oldFilename);                
+                Storage::delete('public/images/items/lrg_'.$oldFilename);
+            }
+
             $item->picture = $filename;
         }
 
@@ -89,16 +104,16 @@ class ItemController extends Controller
      */
     public function show($id)
     {
-        //TEMP
         $item = \App\item::find($id);
+        $categories = Category::orderBy('category','ASC')->paginate(10);
+
 
         if($item != null) {
-            return view('items.TEMP')->with('item', $item);
+            return view('items.details')->with('item', $item)->with('categories', $categories);
         } else {
             Session::flash('error', 'Item '.$id.' not found');
-            return redirect()->route('items.index');
+            return redirect()->route('items.storefront');
         }
-
     }
 
     /**
@@ -145,16 +160,25 @@ class ItemController extends Controller
         //save image
         if ($request->hasFile('picture')) {
             $image = $request->file('picture');
-
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $location ='images/items/' . $filename;
-
+            $extension = $image->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $tnFilename = "tn_".$filename;
+            $location ='images/items/' . $tnFilename;
             $image = Image::make($image);
+            $image->resize(100, 133);
+            Storage::disk('public')->put($location, (string) $image->encode());
+
+            $image = $request->file('picture');
+            $lrgFilename = "lrg_".$filename;
+            $location ='images/items/' . $lrgFilename;
+            $image = Image::make($image);
+            $image->resize(200, 266);
             Storage::disk('public')->put($location, (string) $image->encode());
 
             if (isset($item->picture)) {
                 $oldFilename = $item->picture;
-                Storage::delete('public/images/items/'.$oldFilename);                
+                Storage::delete('public/images/items/tn_'.$oldFilename);                
+                Storage::delete('public/images/items/lrg_'.$oldFilename);
             }
 
             $item->picture = $filename;
@@ -180,7 +204,8 @@ class ItemController extends Controller
         $item = Item::find($id);
         if (isset($item->picture)) {
             $oldFilename = $item->picture;
-            Storage::delete('public/images/items/'.$oldFilename);                
+            Storage::delete('public/images/items/tn_'.$oldFilename); 
+            Storage::delete('public/images/items/lrg_'.$oldFilename);               
         }
         $item->delete();
 
