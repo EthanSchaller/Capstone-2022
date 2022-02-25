@@ -17,7 +17,10 @@ Laravel Project
 @endsection
 
 @section('content')
-	@if(Auth::user())
+	@guest
+		<p>You are currently logged out. Please login to access the website</p>
+		<a href='/login' class='btn btn-default' role='button'>Login</a>
+	@else
 	<div class="row">
 		{!! Form::open(['route' => 'items.store', 'data-parsley-validate' => '', 
 			                'files' => true]) !!}
@@ -38,10 +41,10 @@ Laravel Project
 							<option value='{{ $category->id }}'>{{ $category->category }}</option>
 						@endforeach
 					</select>
-	
+
 					{{ Form::label('description', 'Description:', ['style'=>'margin-top:20px']) }}
 					{{ Form::textarea('description', null, ['class'=>'description', 
-													 'data-parsley-required'=>'']) }}
+													'data-parsley-required'=>'']) }}
 					<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 					<script>
 						tinymce.init({
@@ -80,15 +83,12 @@ Laravel Project
 							{!! Html::linkRoute('items.index', 'Cancel', NULL, ['class'=>'btn btn-danger btn-block']) !!}
 						</div>
 						<div class="col-sm-6">
-							{{ Form::submit('Save Changes', ['class'=>'btn btn-success btn-block', 'style'=>'margin-top:0px']) }}
+							{{ Form::submit('Save', ['class'=>'btn btn-success btn-block', 'style'=>'margin-top:0px']) }}
 						</div>
 					</div>
 				</div>		
 			</div>
 			{!! Form::close() !!}
 		</div>
-	@else
-		<p>You are currently logged out. Please login to access the website</p>
-		<a href='/login' class='btn btn-default' role='button'>Login</a>
-	@endif
+	@endguest
 @endsection

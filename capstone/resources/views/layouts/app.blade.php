@@ -1,5 +1,16 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<style>
+    .prodLink {
+        text-decoration-line: none;
+        color: #737373;
+    }
+
+    .prodLink:hover {
+        color: #4c4c4c;
+    }
+</style>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +44,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        @guest
+                        @else
+                            <li class="{{ Request::is('products/*') || Request::is('products') ? "active" : "" }}"><a class="prodLink" href="/products">Go To Products Page</a></li>
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->

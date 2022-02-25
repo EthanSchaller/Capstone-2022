@@ -42,7 +42,14 @@
               <li class="{{ Request::is('categories/*') || Request::is('categories') ? "active" : "" }}"><a href="/categories">Categories</a></li>
               <li class="{{ Request::is('items/*') || Request::is('items') ? "active" : "" }}"><a href="/items">Items</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right"></ul>
+            <ul class="nav navbar-nav navbar-right">
+              @guest
+                <li class="{{ (Request::is('home/')) ? "active" : "" }}"><a href="/home">👤</a></li>
+              @else
+                <li class="{{ (Request::is('home/')) ? "active" : "" }}"><a href="/home">🧍</a></li>
+              @endguest
+              <li class="{{ Request::is('cart/*') || Request::is('cart') ? "active" : "" }}"><a href="/cart">🛒</a></li>
+            </ul>
           @else
             <ul class="nav navbar-nav">
               <li class="{{ (Request::is('home/')) ? "active" : "" }}"><a href="/home">Home</a></li>            
