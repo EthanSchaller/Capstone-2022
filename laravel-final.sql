@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Jan 21, 2022 at 03:46 AM
+-- Generation Time: Mar 04, 2022 at 08:51 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -89,14 +89,14 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `title`, `description`, `category_id`, `price`, `quantity`, `sku`, `picture`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Pikmin 2', '<p>Pikmin 2 is a 2004 puzzle strategy video game developed and published by Nintendo for the GameCube home video game console.</p>', 1, '19.99', 50, 200412892, '1642733070.png', '2021-12-10 19:21:33', '2022-01-21 06:44:31', NULL),
-(2, 'Call of Duty Black Ops', '<p>Call of Duty Black Ops is a 2010 first-person shooter game developed by Treyarch and published by Activision.</p>', 1, '43.99', 115, 991159359, '1642733019.png', '2021-12-10 19:45:28', '2022-01-21 06:43:40', NULL),
-(3, 'Bean Bag Plush Pac-Man', '<p>Bean bag plush Pac-Man made by Knickerbocker. Comes with one of the following phrases printing on it; \"Eat You Up\", \"Score With Me\", or \"Hungry For You\".</p>', 3, '19.99', 21, 946177417, '1642645361.png', '2021-12-10 20:10:41', '2022-01-21 06:18:02', NULL),
-(4, 'Plush Funky Kong(B2809)', '<p>Plush Funky Kong from 1995. This is a Japanese product so all labeling is in Japanese.</p>', 2, '193.00', 69, 828094517, '1642733058.png', '2021-12-10 20:49:01', '2022-01-21 06:44:19', NULL),
-(5, 'King K Rool Figure', '<p>This product is a toy figure of the Donkey Kong character King K Rool. This little figure was made by Nintendo in 1997 in collaboration with Kellogg\'s.</p>', 3, '137.98', 97, 997711271, '1642733046.jpg', '2021-12-10 21:12:28', '2022-01-21 06:44:06', NULL),
-(6, 'Joe Gardner Figure', '<p>You may ask \"Who\'s Joe?\", Joe \'Buddy\' Gardner is a character from the hit Disney movie Soul. This Figure comes with a removeable hat and a ghost to be displayed with.</p>', 3, '24.94', 3, 713210107, '1642733035.jpg', '2021-12-10 21:23:50', '2022-01-21 06:43:55', NULL),
+(1, 'Pikmin 2', '<p>Pikmin 2 is a 2004 puzzle strategy video game developed and published by Nintendo for the GameCube home video game console.</p>', 1, '19.99', 50, 200412892, '1645066765.png', '2021-12-10 19:21:33', '2022-02-17 06:59:25', NULL),
+(2, 'Call of Duty Black Ops', '<p>Call of Duty Black Ops is a 2010 first-person shooter game developed by Treyarch and published by Activision.</p>', 1, '43.99', 115, 991159359, '1645059778.png', '2021-12-10 19:45:28', '2022-02-17 05:02:59', NULL),
+(3, 'Bean Bag Plush Pac-Man', '<p>Bean bag plush Pac-Man made by Knickerbocker. Comes with one of the following phrases printing on it; \"Eat You Up\", \"Score With Me\", or \"Hungry For You\".</p>', 2, '19.99', 21, 946177417, '1645059752.png', '2021-12-10 20:10:41', '2022-02-17 05:02:32', NULL),
+(4, 'Plush Funky Kong(B2809)', '<p>Plush Funky Kong from 1995. This is a Japanese product so all labeling is in Japanese.</p>', 2, '193.00', 69, 828094517, '1645066773.png', '2021-12-10 20:49:01', '2022-02-17 06:59:33', NULL),
+(5, 'King K Rool Figure', '<p>This product is a toy figure of the Donkey Kong character King K Rool. This little figure was made by Nintendo in 1997 in collaboration with Kellogg\'s.</p>', 3, '137.98', 97, 997711271, '1645066754.jpg', '2021-12-10 21:12:28', '2022-02-17 06:59:14', NULL),
+(6, 'Joe Gardner Figure', '<p>You may ask \"Who\'s Joe?\", Joe \'Buddy\' Gardner is a character from the hit Disney movie Soul. This Figure comes with a removeable hat and a ghost to be displayed with.</p>', 3, '24.94', 3, 713210107, '1645059869.jpg', '2021-12-10 21:23:50', '2022-02-17 05:04:30', NULL),
 (9, 'Homie the Clown', '\"Homie the Clown\" is the fifteenth episode of the sixth season of the American animated television series The Simpsons. It originally aired on the Fox network in the United States on February 12, 1995. In the episode, Homer becomes a Krusty the Clown impersonator, but is mistaken for the real Krusty by the Springfield Mafia. Joe Mantegna returned as Fat Tony, while Dick Cavett and Johnny Unitas guest starred as themselves.', 4, '0.99', 34, 212945139, '1642647808.png', '2022-01-20 07:03:28', '2022-01-20 07:22:44', '2022-01-20 07:22:44'),
-(10, 'Giuseppe Kombat', '<p>This the hit new fighting game that everyone is raving about. Slice the others down, Smoke the competition, and finally, enjoy a hot slice of pizza pie. Play as such characters as \'Ghost\' from Call of Duty Modern Warfare, \'Grey Fox\' from the Metal Gear Series, \'Ryu\' from Ninja Gaiden, \'Doom Slayer\' from Doom, \'Vigil\' from Rainbow Six: Siege, and many more.</p>\r\n<p>*Special Edition*:</p>\r\n<p>&nbsp; &nbsp;- 2 new character (\'Dante\' from the Devil May Cry Series, \'Funky\' from the Donkey Kong) Series</p>\r\n<p>&nbsp; &nbsp;- New campaign featuring the new characters</p>\r\n<p>&nbsp; &nbsp;- Ranked game mode</p>', 1, '79.99', 473, 615100821, '1642648798.png', '2022-01-20 07:19:59', '2022-01-21 06:41:44', NULL),
+(10, 'Giuseppe Kombat', '<p>This the hit new fighting game that everyone is raving about. Slice the others down, Smoke the competition, and finally, enjoy a hot slice of pizza pie. Play as such characters as \'Ghost\' from Call of Duty Modern Warfare, \'Grey Fox\' from the Metal Gear Series, \'Ryu\' from Ninja Gaiden, \'Doom Slayer\' from Doom, \'Vigil\' from Rainbow Six: Siege, and many more.</p>\r\n<p>*Special Edition*:</p>\r\n<p>&nbsp; &nbsp;- 2 new character (\'Dante\' from the Devil May Cry Series, \'Funky\' from the Donkey Kong) Series</p>\r\n<p>&nbsp; &nbsp;- New campaign featuring the new characters</p>\r\n<p>&nbsp; &nbsp;- Ranked game mode</p>', 1, '79.99', 473, 615100821, '1645059829.png', '2022-01-20 07:19:59', '2022-02-17 05:03:49', NULL),
 (11, 'test deletion', 'VG21 deletion after item deletion test', 6, '999', 999, 999999999, '1642705907.png', '2022-01-20 23:11:48', '2022-01-20 23:12:01', '2022-01-20 23:12:01'),
 (12, 'a', 'a', 5, '1', 1, 1, '1642706128.png', '2022-01-20 23:15:28', '2022-01-20 23:16:19', '2022-01-20 23:16:19'),
 (13, 'b', 'b', 5, '2', 2, 2, '1642706205.png', '2022-01-20 23:16:45', '2022-01-20 23:17:37', '2022-01-20 23:17:37'),
@@ -105,7 +105,9 @@ INSERT INTO `items` (`id`, `title`, `description`, `category_id`, `price`, `quan
 (17, 'red', 'der', 5, '321', 123, 213, '1642706597.png', '2022-01-20 23:23:17', '2022-01-20 23:24:20', '2022-01-20 23:24:20'),
 (18, 'aa', 'aa', 5, '11', 11, 11, '1642706679.png', '2022-01-20 23:24:40', '2022-01-20 23:24:53', '2022-01-20 23:24:53'),
 (19, 'aaa', 'aaa', 5, '111', 111, 111, '1642706721.png', '2022-01-20 23:25:21', '2022-01-20 23:31:00', '2022-01-20 23:31:00'),
-(20, 'aaaa', 'aaaa', 5, '1111', 1111, 1111, '1642707083.jpg', '2022-01-20 23:31:23', '2022-01-20 23:34:32', '2022-01-20 23:34:32');
+(20, 'aaaa', 'aaaa', 5, '1111', 1111, 1111, '1642707083.jpg', '2022-01-20 23:31:23', '2022-01-20 23:34:32', '2022-01-20 23:34:32'),
+(21, 'Josh Richardson', '<p>Josh \"Schrodinger\'s Trade Value\" Richardson is a Basketball player that, in NBA Live 2019 specifically, can net you anything from a low 2nd round pick to James Harden and a few 1st rounders. This has led to an inside joke of him being like Schrodinger\'s cat meaning that no-one really knows his trade value and it is considered simultaneously high and low.</p>', 1, '21.12', 1, 800376355, '1645060121.png', '2022-02-16 04:22:51', '2022-02-17 05:08:41', NULL),
+(22, 'Captain America Figure (Avengers: Endgame)', '<p>The highly-accurate Captain America collectible figure is expertly crafted based on the appearance of Chris Evans as Captain America/Steve Rogers from <em>Avengers: Endgame</em>. Featuring a newly painted helmeted head sculpt with three interchangeable lower faces capturing Chris Evan&rsquo;s facial expressions and an un-helmeted head sculpt, a muscular body which naturally portrays Captain America&rsquo;s muscularly toned body, a meticulously tailored outfit with a star emblem on the chest, Cap&rsquo;s star-spangled shield, a delicate compass, a signature helmet and a specially designed movie-themed figure stand.</p>', 3, '49.99', 23, 495172619, '1645746113.jpg', '2022-02-25 03:41:53', '2022-02-25 03:59:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -148,7 +150,7 @@ CREATE TABLE `password_resets` (
 --
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
-('ethanschaller99@gmail.com', '$2y$10$4JDlqJ3kHDwovCLHTnAdBeXlKRtuyzDGy9S/8COAoAS4wHfJxkcT6', '2022-01-20 04:21:13');
+('ethanschaller99@gmail.com', '$2y$10$g.U4hOSsT9vS/ymwHycLE.S5g2FWtJcXXg0on/fKDe1b3DiSnpz52', '2022-01-27 05:56:15');
 
 -- --------------------------------------------------------
 
@@ -167,6 +169,29 @@ CREATE TABLE `personal_access_tokens` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `shopping_cart`
+--
+
+CREATE TABLE `shopping_cart` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `item_id` bigint(20) UNSIGNED NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `shopping_cart`
+--
+
+INSERT INTO `shopping_cart` (`id`, `item_id`, `quantity`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 21, '2022-03-04 19:19:35', '2022-03-04 19:21:21', NULL),
+(2, 21, 1, '2022-03-04 19:25:03', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -190,7 +215,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Ethan Schaller', 'ethanschaller99@gmail.com', NULL, '$2y$10$XGHdz6.G/AftrhkZsiIttO9qhZNJ/LSW3HYyaiV17ueojjl0TrdaK', 'vpBXoTLGU1eeYwZYbOchBjVf6U2aaj2jerCpsVMJkbt6Yg31MDysmFSuUD6H', '2021-12-10 09:55:16', '2021-12-10 09:55:16');
+(3, 'Ethan Schaller', 'ethanschaller99@gmail.com', NULL, '$2y$10$l7toNrD93dalPXzMLFBuh.OElqasN.7EWzXJxOfU4HEMmJynYKUYm', 'ambrImpJywO2uUzFJ3eS0m63141OK6d7swdBuRGd1AZE2VY657MrVCKA3Yuj', '2022-01-27 06:01:23', '2022-01-27 06:01:23');
 
 --
 -- Indexes for dumped tables
@@ -240,6 +265,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `shopping_cart`
+--
+ALTER TABLE `shopping_cart`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -266,7 +297,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -284,7 +315,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

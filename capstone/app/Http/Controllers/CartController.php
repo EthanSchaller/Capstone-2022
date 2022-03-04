@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Category;
 use App\Item;
-use Image;
-use Storage;
-use Session;
+use App\ShoppingCart;
 
 class CartController extends Controller
 {
@@ -18,6 +14,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        return view('cart.shoppingcart');
+        $items = Item::orderBy('title','ASC')->paginate(10);
+        $shopping_cart = ShoppingCart::orderBy('id', 'ASC')->paginate(10);
+        return view('Cart.shoppingcart')->with('shopping_cart', $shopping_cart)->with('items', $items);
     }
 }

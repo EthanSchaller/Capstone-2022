@@ -47,10 +47,10 @@ Laravel Project
 									@if($catID == $item->category_id)
 										<td>
 											<div class="thumbnail" style="text-align: center">
-											<a class="img-thumbnail" href='/items/{{ $item->id }}'><img src={{ URL('storage/images/items/tn_'.$item->picture) }} alt="{{ $item->picture }}"></a>
-											<div><a href='/items/{{ $item->id }}'>{{ $item->title }}</a></div>
-											<div>${{ $item->price }}</div>
-											<div><a href="/items/{{ $item->id }}" class="btn btn-sm btn-primary">Buy Now</a></div>
+												<a class="img-thumbnail" href='/items/{{ $item->id }}'><img src={{ URL('storage/images/items/tn_'.$item->picture) }} alt="{{ $item->picture }}"></a>
+												<div><a href='/items/{{ $item->id }}'>{{ $item->title }}</a></div>
+												<div>${{ $item->price }}</div>
+												<div><a href="/items/{{ $item->id }}" class="btn btn-sm btn-primary">Buy Now</a></div>
 											</div>
 										</td>
 									
@@ -61,10 +61,10 @@ Laravel Project
 								@else
 									<td>
 										<div class="thumbnail" style="text-align: center">
-										<a class="img-thumbnail" href='/items/{{ $item->id }}'><img src={{ URL('storage/images/items/tn_'.$item->picture) }} alt="{{ $item->picture }}"></a>
-										<div><a href='/items/{{ $item->id }}'>{{ $item->title }}</a></div>
-										<div>${{ $item->price }}</div>
-										<div><a href="/items/{{ $item->id }}" class="btn btn-sm btn-primary">Buy Now</a></div>
+											<a class="img-thumbnail" href='/items/{{ $item->id }}'><img src={{ URL('storage/images/items/tn_'.$item->picture) }} alt="{{ $item->picture }}"></a>
+											<div><a href='/items/{{ $item->id }}'>{{ $item->title }}</a></div>
+											<div>${{ $item->price }}</div>
+											<div><a href="/items/{{ $item->id }}" class="btn btn-sm btn-primary">Buy Now</a></div>
 										</div>
 									</td>
 									<?php
