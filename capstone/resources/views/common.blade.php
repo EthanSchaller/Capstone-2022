@@ -1,3 +1,7 @@
+<?php
+  session()->put('session_id', session()->getId());
+  session()->put('ip_address', request()->getClientIp());
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
