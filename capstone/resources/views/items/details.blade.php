@@ -26,7 +26,7 @@ Laravel Project
                         <tbody>
                             <tr>
                                 <td>
-                                    {!! Form::open(['route' => ['cart.show', $item->id], 'method'=>'GET']) !!}
+                                    {!! Form::open(['route' => [('addToCart'), $item->id], 'method'=>'GET']) !!}
                                         {{ Form::submit('Add To Cart', ['class'=>'btn btn-sm btn-primary btn-block', 'style'=>'']) }}
                                     {!! Form::close() !!}
                                 </td>

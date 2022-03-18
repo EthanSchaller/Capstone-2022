@@ -9,6 +9,23 @@ Laravel Project
 @endsection
 
 @section('content')
+    <?php
+        if(isset($_POST['quantitySlct'])){
+            $quantitySlct = $_POST['quantitySlct'];
+            switch ($quantitySlct) {
+                case 1:
+                    echo 'this is value1<br/>';
+                    break;
+                case 2:
+                    echo 'value2<br/>';
+                    break;
+                default:
+                    echo 'value3+<br/>';
+                    break;
+            }
+        }
+    ?>
+
 	@guest
 		<p>You are currently logged out. Please login to access the website</p>
 		<a href='/login' class='btn btn-default' role='button'>Login</a>
@@ -26,10 +43,11 @@ Laravel Project
 			<div class="col-md-8 col-md-offset-2">
 				<table class="table">
 					<thead>
-						<th>Title</th>
+						<th>Item Title</th>
 						<th>Added At</th>
                         <th>Item(s) Price</th>
 						<th>Quantity</th>
+                        <th>Change Quantity</th>
                         <th></th>
                         <th></th>
 					</thead>
@@ -40,7 +58,7 @@ Laravel Project
 						?>
 						@foreach ($shopping_cart as $cartItem)
                             @foreach ($items as $item)
-                                @if ($cartItem->item_id == $item->id)
+                                @if ($cartItem->item_id == $item->id && $cartItem->session == session()->get('session_id') && $cartItem->ip == session()->get('ip_address'))
                                     <tr>
                                         <td>{{ $item->title }}</td>
                                         <td>{{ $cartItem->created_at }}</td>
@@ -49,38 +67,23 @@ Laravel Project
                                         ?>
                                         <td>{{ $item->price * $cartItem->quantity}}</td>
                                         <td>{{ $cartItem->quantity }}</td>
-                                        <td>
-                                            <select name='quantitySlct' id='quantitySlct' class='form-control' data-parsley-required="true">
-                                                <option value="">{{ $cartItem->quantity }}</option>
-                                                <?php 
-                                                    $iQuant = 1;
-                                                ?>
-                                                @while($iQuant <= $item->quantity) 
-                                                    @if($cartItem->quantity == $iQuant)
-                                                        <option value='{{ $iQuant }}' selected>{{ $iQuant }}</option>
-                                                    @else
-                                                        <option value='{{ $iQuant }}'>{{ $iQuant }}</option>
-                                                    @endif
-
-                                                    <?php 
-                                                        $iQuant++;
-                                                    ?>
-                                                @endwhile
-
-                                            </select>
-                                        </td>
-                                        <td><a href="{{ route('products.index') }}" class="btn btn-sm btn-danger btn-block">Remove Item</a></td>
+                                        {!! Form::open(['route' => [('updateCart'), $cartItem->id], 'method'=>'GET']) !!}
+                                            <td>{{ Form::selectRange('quantitySlct', 1, $item->quantity, $cartItem->quantity) }}</td>
+                                            <td>{{ Form::submit('Update Order', ['class'=>'btn btn-sm btn-success btn-block', 'style'=>'']) }}
+                                        {!! Form::close() !!}
+                                        <td><a href="{{ route('deleteCartItem', $cartItem->id) }}" class="btn btn-sm btn-danger btn-block">Remove Item</a></td>
                                     </tr>
                                 @endif
                             @endforeach
 						@endforeach
-                        <tr>
-                            <td>Total price: {{ $ttlPrice }}</td>
+                        <tr>        
                             <td></td>
                             <td></td>
-                            <td><a href="{{ route('products.index') }}" class="btn btn-sm btn-success btn-block">Update Order</a></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Total: ${{ $ttlPrice }}</td>                    
                             <td><a href="{{ route('products.index') }}" class="btn btn-sm btn-primary btn-block">Check-out</a></td>
-                            <td></td>
                         </tr>
 					</tbody>
 				</table>
