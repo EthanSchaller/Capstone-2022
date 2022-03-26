@@ -41,7 +41,7 @@ class ItemController extends Controller
      */
     public function store(Request $request)
     { 
-        //dd(storage_path());;
+        //dd(storage_path());
         //validate the data
         // if fails, defaults to create() passing errors
         $this->validate($request, ['title'=>'required|string|max:255',

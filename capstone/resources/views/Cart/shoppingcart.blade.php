@@ -67,7 +67,7 @@ Laravel Project
                                         ?>
                                         <td>{{ $item->price * $cartItem->quantity}}</td>
                                         <td>{{ $cartItem->quantity }}</td>
-                                        {!! Form::open(['route' => [('updateCart'), $cartItem->id], 'method'=>'GET']) !!}
+                                        {!! Form::open(['route' => [('updateCartItem'), $cartItem->id], 'method'=>'GET']) !!}
                                             <td>{{ Form::selectRange('quantitySlct', 1, $item->quantity, $cartItem->quantity) }}</td>
                                             <td>{{ Form::submit('Update Order', ['class'=>'btn btn-sm btn-success btn-block', 'style'=>'']) }}
                                         {!! Form::close() !!}
@@ -82,16 +82,48 @@ Laravel Project
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>Total: ${{ $ttlPrice }}</td>                    
-                            <td><a href="{{ route('products.index') }}" class="btn btn-sm btn-primary btn-block">Check-out</a></td>
+                            <td>Total: ${{ $ttlPrice }}</td>   
+                            {!! Form::open(['route' => [('checkOutCart'), session()->get('session_id')], 'method'=>'GET']) !!}
+                                <td>{{ Form::submit('Check-out', ['class'=>'btn btn-sm btn-primary btn-block', 'style'=>'']) }}</td>
                         </tr>
 					</tbody>
 				</table>
                 <table class="table">
-                    
+                    <thead>
+						<th>Customer Info Form</th>
+						<th style="text-align: right">(Required For Check-out)</th>
+					</thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                {{ Form::label('fName', 'Fisrt Name:') }}
+                                {{ Form::text('fName', null, ['class'=>'form-control', 'style'=>'', 
+                                                            'data-parsley-required'=>'', 
+                                                            'data-parsley-maxlength'=>'255']) }}
+                            </td>
+                            <td>
+                                {{ Form::label('lName', 'Last Name:') }}
+                                {{ Form::text('lName', null, ['class'=>'form-control', 'style'=>'', 
+                                                            'data-parsley-required'=>'', 
+                                                            'data-parsley-maxlength'=>'255']) }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{ Form::label('phone', 'Phone Number:') }}
+                                {{ Form::text('phone', null, ['class'=>'form-control', 'style'=>'', 
+                                                            'data-parsley-required'=>'']) }}
+                            </td>
+                            <td>
+                                {{ Form::label('email', 'Email Address:') }}
+                                {{ Form::text('email', null, ['class'=>'form-control', 'style'=>'', 
+                                                            'data-parsley-required'=>'']) }}
+                            </td>
+                        </tr>
+                    </tbody>
+                    {!! Form::close() !!}   
                 </table>
 				<div class="text-center">
-                    {!! $items->links(); !!}
                     {!! $shopping_cart->links(); !!}
                 </div>
 			</div>
