@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Mar 04, 2022 at 08:51 PM
+-- Generation Time: Mar 26, 2022 at 03:37 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -89,8 +89,8 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `title`, `description`, `category_id`, `price`, `quantity`, `sku`, `picture`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Pikmin 2', '<p>Pikmin 2 is a 2004 puzzle strategy video game developed and published by Nintendo for the GameCube home video game console.</p>', 1, '19.99', 50, 200412892, '1645066765.png', '2021-12-10 19:21:33', '2022-02-17 06:59:25', NULL),
-(2, 'Call of Duty Black Ops', '<p>Call of Duty Black Ops is a 2010 first-person shooter game developed by Treyarch and published by Activision.</p>', 1, '43.99', 115, 991159359, '1645059778.png', '2021-12-10 19:45:28', '2022-02-17 05:02:59', NULL),
+(1, 'Pikmin 2', '<p>Pikmin 2 is a 2004 puzzle strategy video game developed and published by Nintendo for the GameCube home video game console.</p>', 1, '19.99', 50, 200412892, '1645066765.png', '2021-12-10 19:21:33', '2022-03-18 05:38:00', NULL),
+(2, 'Call of Duty Black Ops', '<p>Call of Duty Black Ops is a 2010 first-person shooter game developed by Treyarch and published by Activision.</p>', 1, '43.99', 115, 991159359, '1645059778.png', '2021-12-10 19:45:28', '2022-03-18 05:38:16', NULL),
 (3, 'Bean Bag Plush Pac-Man', '<p>Bean bag plush Pac-Man made by Knickerbocker. Comes with one of the following phrases printing on it; \"Eat You Up\", \"Score With Me\", or \"Hungry For You\".</p>', 2, '19.99', 21, 946177417, '1645059752.png', '2021-12-10 20:10:41', '2022-02-17 05:02:32', NULL),
 (4, 'Plush Funky Kong(B2809)', '<p>Plush Funky Kong from 1995. This is a Japanese product so all labeling is in Japanese.</p>', 2, '193.00', 69, 828094517, '1645066773.png', '2021-12-10 20:49:01', '2022-02-17 06:59:33', NULL),
 (5, 'King K Rool Figure', '<p>This product is a toy figure of the Donkey Kong character King K Rool. This little figure was made by Nintendo in 1997 in collaboration with Kellogg\'s.</p>', 3, '137.98', 97, 997711271, '1645066754.jpg', '2021-12-10 21:12:28', '2022-02-17 06:59:14', NULL),
@@ -108,6 +108,23 @@ INSERT INTO `items` (`id`, `title`, `description`, `category_id`, `price`, `quan
 (20, 'aaaa', 'aaaa', 5, '1111', 1111, 1111, '1642707083.jpg', '2022-01-20 23:31:23', '2022-01-20 23:34:32', '2022-01-20 23:34:32'),
 (21, 'Josh Richardson', '<p>Josh \"Schrodinger\'s Trade Value\" Richardson is a Basketball player that, in NBA Live 2019 specifically, can net you anything from a low 2nd round pick to James Harden and a few 1st rounders. This has led to an inside joke of him being like Schrodinger\'s cat meaning that no-one really knows his trade value and it is considered simultaneously high and low.</p>', 1, '21.12', 1, 800376355, '1645060121.png', '2022-02-16 04:22:51', '2022-02-17 05:08:41', NULL),
 (22, 'Captain America Figure (Avengers: Endgame)', '<p>The highly-accurate Captain America collectible figure is expertly crafted based on the appearance of Chris Evans as Captain America/Steve Rogers from <em>Avengers: Endgame</em>. Featuring a newly painted helmeted head sculpt with three interchangeable lower faces capturing Chris Evan&rsquo;s facial expressions and an un-helmeted head sculpt, a muscular body which naturally portrays Captain America&rsquo;s muscularly toned body, a meticulously tailored outfit with a star emblem on the chest, Cap&rsquo;s star-spangled shield, a delicate compass, a signature helmet and a specially designed movie-themed figure stand.</p>', 3, '49.99', 23, 495172619, '1645746113.jpg', '2022-02-25 03:41:53', '2022-02-25 03:59:27', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `items_sold`
+--
+
+CREATE TABLE `items_sold` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_item` bigint(20) UNSIGNED NOT NULL,
+  `id_order` bigint(20) UNSIGNED NOT NULL,
+  `ttlPrice` double NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -132,6 +149,25 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (5, '2021_12_08_034905_create_categories_table', 1),
 (6, '2021_12_08_035354_create_items_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_info`
+--
+
+CREATE TABLE `order_info` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `fName` text NOT NULL,
+  `lName` text NOT NULL,
+  `phone` text NOT NULL,
+  `email` text NOT NULL,
+  `ip_address` text NOT NULL,
+  `session_id` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -180,6 +216,8 @@ CREATE TABLE `shopping_cart` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `item_id` bigint(20) UNSIGNED NOT NULL,
   `quantity` int(11) NOT NULL,
+  `session` text NOT NULL,
+  `ip` text NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -189,9 +227,25 @@ CREATE TABLE `shopping_cart` (
 -- Dumping data for table `shopping_cart`
 --
 
-INSERT INTO `shopping_cart` (`id`, `item_id`, `quantity`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 21, '2022-03-04 19:19:35', '2022-03-04 19:21:21', NULL),
-(2, 21, 1, '2022-03-04 19:25:03', NULL, NULL);
+INSERT INTO `shopping_cart` (`id`, `item_id`, `quantity`, `session`, `ip`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 1, 42, 'DaIjlBs2KCPwkvxfP34N3WzPPseuXUjyASjFHwO1', '127.0.0.1', '2022-03-04 19:19:35', '2022-03-18 05:40:08', NULL),
+(2, 21, 1, 'DaIjlBs2KCPwkvxfP34N3WzPPseuXUjyASjFHwO1', '127.0.0.1', '2022-03-04 19:25:03', NULL, NULL),
+(9, 1, 1, '4WyBTLm18nFBnweNz0FcUMqeQmbHs0XAstKvAVft', '127.0.0.1', '2022-03-12 01:10:27', '2022-03-12 01:10:27', NULL),
+(10, 1, 1, '4WyBTLm18nFBnweNz0FcUMqeQmbHs0XAstKvAVft', '127.0.0.1', '2022-03-12 01:26:39', '2022-03-12 01:26:39', NULL),
+(11, 1, 1, '4WyBTLm18nFBnweNz0FcUMqeQmbHs0XAstKvAVft', '127.0.0.1', '2022-03-12 01:26:42', '2022-03-12 01:26:42', NULL),
+(12, 1, 2, 'fJem8Y6SVV0KHDURcqjlSJwTpCQ9jRb5Cj329Ray', '127.0.0.1', '2022-03-18 04:38:00', '2022-03-18 05:48:01', NULL),
+(13, 2, 1, 'fJem8Y6SVV0KHDURcqjlSJwTpCQ9jRb5Cj329Ray', '127.0.0.1', '2022-03-18 04:38:08', '2022-03-18 04:38:08', NULL),
+(14, 1, 5, 'fJem8Y6SVV0KHDURcqjlSJwTpCQ9jRb5Cj329Ray', '127.0.0.1', '2022-03-18 04:43:50', '2022-03-18 05:48:04', '2022-03-18 05:48:04'),
+(15, 1, 1, '8YJsCiWWrIbzWUJsbw265XI7WkPRNtBBjaW6KivU', '127.0.0.1', '2022-03-18 04:45:00', '2022-03-18 04:45:00', NULL),
+(16, 3, 12, 'fJem8Y6SVV0KHDURcqjlSJwTpCQ9jRb5Cj329Ray', '127.0.0.1', '2022-03-18 05:40:34', '2022-03-18 05:41:32', NULL),
+(17, 1, 4, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 01:44:34', '2022-03-26 03:45:35', '2022-03-26 03:45:35'),
+(18, 1, 1, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 01:45:23', '2022-03-26 03:45:37', '2022-03-26 03:45:37'),
+(19, 1, 9, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 03:46:57', '2022-03-26 03:47:03', '2022-03-26 03:47:03'),
+(20, 1, 5, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 03:48:43', '2022-03-26 03:49:26', '2022-03-26 03:49:26'),
+(21, 4, 6, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 03:49:31', '2022-03-26 05:33:12', '2022-03-26 05:33:12'),
+(22, 21, 1, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 05:17:30', '2022-03-26 05:17:30', NULL),
+(23, 2, 1, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 05:17:47', '2022-03-26 05:17:47', NULL),
+(24, 6, 1, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 05:29:07', '2022-03-26 05:29:07', NULL);
 
 -- --------------------------------------------------------
 
@@ -245,9 +299,23 @@ ALTER TABLE `items`
   ADD KEY `items_category_id_foreign` (`category_id`);
 
 --
+-- Indexes for table `items_sold`
+--
+ALTER TABLE `items_sold`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sold_item_ids` (`id_item`),
+  ADD KEY `sold_order_ids` (`id_order`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order_info`
+--
+ALTER TABLE `order_info`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -268,7 +336,8 @@ ALTER TABLE `personal_access_tokens`
 -- Indexes for table `shopping_cart`
 --
 ALTER TABLE `shopping_cart`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `item_ids` (`item_id`);
 
 --
 -- Indexes for table `users`
@@ -300,16 +369,34 @@ ALTER TABLE `items`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
+-- AUTO_INCREMENT for table `items_sold`
+--
+ALTER TABLE `items_sold`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `order_info`
+--
+ALTER TABLE `order_info`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `shopping_cart`
+--
+ALTER TABLE `shopping_cart`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -326,6 +413,19 @@ ALTER TABLE `users`
 --
 ALTER TABLE `items`
   ADD CONSTRAINT `items_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `items_sold`
+--
+ALTER TABLE `items_sold`
+  ADD CONSTRAINT `sold_item_ids` FOREIGN KEY (`id_item`) REFERENCES `items` (`id`),
+  ADD CONSTRAINT `sold_order_ids` FOREIGN KEY (`id_order`) REFERENCES `order_info` (`id`);
+
+--
+-- Constraints for table `shopping_cart`
+--
+ALTER TABLE `shopping_cart`
+  ADD CONSTRAINT `item_ids` FOREIGN KEY (`item_id`) REFERENCES `items` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
