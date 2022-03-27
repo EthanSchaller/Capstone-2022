@@ -41,7 +41,7 @@ Laravel Project
 						?>
 						@foreach ($categories as $category)
 							<tr>
-								<th><a href='/categories/{{ $category->id }}' class='btn btn-secondary' role='button'>{{ $i++ }}</a></th>
+								<th>{{ $i++ }}</th>
 								<td>{{ $category->category }}</td>
 								<td style='width:100px;'>{{ date('M j, Y', strtotime($category->created_at)) }}</td>
 								<td style='width:100px;'>{{ date('M j, Y', strtotime($category->updated_at)) }}</td>

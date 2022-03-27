@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\SoldItems;
 use App\Item;
+use App\OrderInfo;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,19 +22,17 @@ Route::get('/cart/delete/{id}', [App\Http\Controllers\CartController::class, 'de
 Route::get('/cart/checkout/{session}', [App\Http\Controllers\CartController::class, 'checkOutCart'])->name('checkOutCart');
 Route::get('/cart/Receipt/', [App\Http\Controllers\CartController::class, 'orderReceipt'])->name('orderReceipt');
 
+Route::get('/CompleteOrders', [App\Http\Controllers\CompOrdersController::class, 'index'])->name('index');
+Route::get('/CompleteOrders/{id}', [App\Http\Controllers\CompOrdersController::class, 'checkReceipt'])->name('checkReceipt');
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/CompleteOrders', function() {
-    $SoldItems = SoldItems::orderBy('id','ASC')->paginate(10);
-    $items = Item::orderBy('id','ASC')->paginate(10);
-    return view('orders.completeOrders')->with('soldItems',$SoldItems)->with('items',$items);
-})->middleware('auth');
+
+Auth::routes();
 
 Route::resource('items', '\App\Http\Controllers\ItemController')->middleware('auth');
 Route::resource('categories', '\App\Http\Controllers\CategoryController')->middleware('auth');

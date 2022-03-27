@@ -47,7 +47,7 @@
               <li class="{{ Request::is('products/*') || Request::is('products') ? "active" : "" }}"><a href="/products">Products</a></li>
               <li class="{{ Request::is('categories/*') || Request::is('categories') ? "active" : "" }}"><a href="/categories">Categories</a></li>
               <li class="{{ Request::is('items/*') || Request::is('items') ? "active" : "" }}"><a href="/items">Items</a></li>
-              <li class="{{ Request::is('CompleteOrders/*') || Request::is('CompOrders') ? "active" : "" }}"><a href="/CompleteOrders">Complete Orders</a></li>
+              <li class="{{ Request::is('CompleteOrders/*') || Request::is('orders') ? "active" : "" }}"><a href="/CompleteOrders">Complete Orders</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li class="{{ (Request::is('home/')) ? "active" : "" }}"><a href="/home">🧍</a></li>

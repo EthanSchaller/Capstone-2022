@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Mar 26, 2022 at 03:37 AM
+-- Generation Time: Mar 27, 2022 at 07:21 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -126,6 +126,16 @@ CREATE TABLE `items_sold` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `items_sold`
+--
+
+INSERT INTO `items_sold` (`id`, `id_item`, `id_order`, `ttlPrice`, `quantity`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(377, 21, 160, 21.12, 1, '2022-03-27 06:35:06', '2022-03-27 06:35:06', NULL),
+(378, 1, 161, 279.86, 14, '2022-03-27 08:14:54', '2022-03-27 08:14:54', NULL),
+(379, 2, 161, 2243.49, 51, '2022-03-27 08:14:54', '2022-03-27 08:14:54', NULL),
+(380, 10, 161, 3039.62, 38, '2022-03-27 08:14:54', '2022-03-27 08:14:54', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -168,6 +178,14 @@ CREATE TABLE `order_info` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_info`
+--
+
+INSERT INTO `order_info` (`id`, `fName`, `lName`, `phone`, `email`, `ip_address`, `session_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(160, 'Ethan', 'Schaller', '1-902-578-4570', 'ethanschaller99@gmail.com', '127.0.0.1', 'qYT3tfJKn6J9qZlgT09HGk5QsuI8G5YX9ydYdF4l', '2022-03-27 06:35:06', '2022-03-27 06:35:06', NULL),
+(161, 'Albert', 'Allister', '1-111-111-1111', 'alallister@gmail.com', '127.0.0.1', 'PQ4J1fQ2JOykEj45t3HCEASiFMWe9J64JcT7SKLM', '2022-03-27 08:14:53', '2022-03-27 08:14:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -228,24 +246,10 @@ CREATE TABLE `shopping_cart` (
 --
 
 INSERT INTO `shopping_cart` (`id`, `item_id`, `quantity`, `session`, `ip`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 1, 42, 'DaIjlBs2KCPwkvxfP34N3WzPPseuXUjyASjFHwO1', '127.0.0.1', '2022-03-04 19:19:35', '2022-03-18 05:40:08', NULL),
-(2, 21, 1, 'DaIjlBs2KCPwkvxfP34N3WzPPseuXUjyASjFHwO1', '127.0.0.1', '2022-03-04 19:25:03', NULL, NULL),
-(9, 1, 1, '4WyBTLm18nFBnweNz0FcUMqeQmbHs0XAstKvAVft', '127.0.0.1', '2022-03-12 01:10:27', '2022-03-12 01:10:27', NULL),
-(10, 1, 1, '4WyBTLm18nFBnweNz0FcUMqeQmbHs0XAstKvAVft', '127.0.0.1', '2022-03-12 01:26:39', '2022-03-12 01:26:39', NULL),
-(11, 1, 1, '4WyBTLm18nFBnweNz0FcUMqeQmbHs0XAstKvAVft', '127.0.0.1', '2022-03-12 01:26:42', '2022-03-12 01:26:42', NULL),
-(12, 1, 2, 'fJem8Y6SVV0KHDURcqjlSJwTpCQ9jRb5Cj329Ray', '127.0.0.1', '2022-03-18 04:38:00', '2022-03-18 05:48:01', NULL),
-(13, 2, 1, 'fJem8Y6SVV0KHDURcqjlSJwTpCQ9jRb5Cj329Ray', '127.0.0.1', '2022-03-18 04:38:08', '2022-03-18 04:38:08', NULL),
-(14, 1, 5, 'fJem8Y6SVV0KHDURcqjlSJwTpCQ9jRb5Cj329Ray', '127.0.0.1', '2022-03-18 04:43:50', '2022-03-18 05:48:04', '2022-03-18 05:48:04'),
-(15, 1, 1, '8YJsCiWWrIbzWUJsbw265XI7WkPRNtBBjaW6KivU', '127.0.0.1', '2022-03-18 04:45:00', '2022-03-18 04:45:00', NULL),
-(16, 3, 12, 'fJem8Y6SVV0KHDURcqjlSJwTpCQ9jRb5Cj329Ray', '127.0.0.1', '2022-03-18 05:40:34', '2022-03-18 05:41:32', NULL),
-(17, 1, 4, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 01:44:34', '2022-03-26 03:45:35', '2022-03-26 03:45:35'),
-(18, 1, 1, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 01:45:23', '2022-03-26 03:45:37', '2022-03-26 03:45:37'),
-(19, 1, 9, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 03:46:57', '2022-03-26 03:47:03', '2022-03-26 03:47:03'),
-(20, 1, 5, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 03:48:43', '2022-03-26 03:49:26', '2022-03-26 03:49:26'),
-(21, 4, 6, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 03:49:31', '2022-03-26 05:33:12', '2022-03-26 05:33:12'),
-(22, 21, 1, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 05:17:30', '2022-03-26 05:17:30', NULL),
-(23, 2, 1, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 05:17:47', '2022-03-26 05:17:47', NULL),
-(24, 6, 1, 'F7u8vetXS5d4H55TkAxkP2Wwd0HTx62Dl5b76BeP', '127.0.0.1', '2022-03-26 05:29:07', '2022-03-26 05:29:07', NULL);
+(35, 21, 1, 'qYT3tfJKn6J9qZlgT09HGk5QsuI8G5YX9ydYdF4l', '127.0.0.1', '2022-03-27 06:34:52', '2022-03-27 06:34:52', NULL),
+(36, 1, 14, 'PQ4J1fQ2JOykEj45t3HCEASiFMWe9J64JcT7SKLM', '127.0.0.1', '2022-03-27 08:13:03', '2022-03-27 08:13:24', NULL),
+(37, 2, 51, 'PQ4J1fQ2JOykEj45t3HCEASiFMWe9J64JcT7SKLM', '127.0.0.1', '2022-03-27 08:13:07', '2022-03-27 08:13:19', NULL),
+(38, 10, 38, 'PQ4J1fQ2JOykEj45t3HCEASiFMWe9J64JcT7SKLM', '127.0.0.1', '2022-03-27 08:13:11', '2022-03-27 08:13:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -269,7 +273,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'Ethan Schaller', 'ethanschaller99@gmail.com', NULL, '$2y$10$l7toNrD93dalPXzMLFBuh.OElqasN.7EWzXJxOfU4HEMmJynYKUYm', 'ambrImpJywO2uUzFJ3eS0m63141OK6d7swdBuRGd1AZE2VY657MrVCKA3Yuj', '2022-01-27 06:01:23', '2022-01-27 06:01:23');
+(3, 'Ethan Schaller', 'ethanschaller99@gmail.com', NULL, '$2y$10$l7toNrD93dalPXzMLFBuh.OElqasN.7EWzXJxOfU4HEMmJynYKUYm', 'Lchgbxt6l8BI0sBmoandBxfM41IN7v67NjL7nRUKsQ46cGQAtuFeunh9Knhu', '2022-01-27 06:01:23', '2022-01-27 06:01:23');
 
 --
 -- Indexes for dumped tables
@@ -372,7 +376,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `items_sold`
 --
 ALTER TABLE `items_sold`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=381;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -384,7 +388,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `order_info`
 --
 ALTER TABLE `order_info`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -396,7 +400,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `shopping_cart`
 --
 ALTER TABLE `shopping_cart`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `users`
