@@ -10,6 +10,16 @@ Laravel Project
 
 @section('content')
     <?php
+        session()->put('session_id', session()->getId());
+        session()->put('ip_address', request()->getClientIp());
+
+        $session = session()->get('session_id');
+    ?>
+
+    <?php
+        $ip = session()->get('ip_address');
+        $session = session()->get('session_id');
+
         if(isset($_POST['quantitySlct'])){
             $quantitySlct = $_POST['quantitySlct'];
             switch ($quantitySlct) {
@@ -58,7 +68,7 @@ Laravel Project
 						?>
 						@foreach ($shopping_cart as $cartItem)
                             @foreach ($items as $item)
-                                @if ($cartItem->item_id == $item->id && $cartItem->session == session()->get('session_id') && $cartItem->ip == session()->get('ip_address'))
+                                @if ($cartItem->item_id == $item->id && $cartItem->session == $session && $cartItem->ip == $ip)
                                     <tr>
                                         <td>{{ $item->title }}</td>
                                         <td>{{ $cartItem->created_at }}</td>
@@ -83,7 +93,7 @@ Laravel Project
                             <td></td>
                             <td></td>
                             <td>Total: ${{ $ttlPrice }}</td>   
-                            {!! Form::open(['route' => [('checkOutCart'), session()->get('session_id')], 'method'=>'GET']) !!}
+                            {!! Form::open(['route' => [('checkOutCart'), $session], 'method'=>'GET']) !!}
                                 <td>{{ Form::submit('Check-out', ['class'=>'btn btn-sm btn-primary btn-block', 'style'=>'']) }}</td>
                         </tr>
 					</tbody>

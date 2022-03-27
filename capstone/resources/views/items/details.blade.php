@@ -9,6 +9,10 @@ Laravel Project
 @endsection
 
 @section('content')
+    <?php
+        session()->put('session_id', session()->getId());
+        session()->put('ip_address', request()->getClientIp());
+    ?>
     <div class="container" style="text-align: center">
         <div class="row justify-content-center">
             <div class="col-sm-8 col-md-8 col-lg-8">

@@ -91,6 +91,10 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function checkOutCart(Request $request) {
+        if(!session()->has('session_id')) {
+            return redirect()->route('products.index');
+        }
+        
         if(isset($_GET['fName']) && isset($_GET['lName']) && isset($_GET['phone']) && isset($_GET['email'])) {
             $fName = $_GET['fName'];
             $lName = $_GET['lName'];
@@ -102,20 +106,25 @@ class CartController extends Controller
                                        'phone'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
                                        'email'=>'required|email|max:255']);
        
-
             if($validated) {
                 $order = new OrderInfo;
                 $order->fName = $fName;
                 $order->lName = $lName;
                 $order->phone = $phone;
                 $order->email = $email;
-                $order->session_id = session()->get('session_id');
+                $order->session_id = $request->session;
                 $order->ip_address = session()->get('ip_address');
 
                 $order->save();
 
                 CartController::sellitems($request, $order);
-                return redirect()->route('items.index');
+
+                $shopping_cart = ShoppingCart::where('session', session()->get('session_id'))->orderBy('id', 'ASC')->paginate(10);
+                $items = Item::orderBy('title','ASC')->paginate(10);
+        
+                return view('thankPage', ['items'=>$items,
+                                          'cart'=>$shopping_cart,
+                                          'order'=>$order]);
             }
         }
 
@@ -145,7 +154,6 @@ class CartController extends Controller
                 $soldItem->quantity = $cartItem->quantity;
 
                 $soldItem->save();
-
             }
         }
     }

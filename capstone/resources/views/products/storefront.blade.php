@@ -1,4 +1,3 @@
-
 @extends('common') 
 
 @section('pagetitle')

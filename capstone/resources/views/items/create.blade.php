@@ -17,6 +17,11 @@ Laravel Project
 @endsection
 
 @section('content')
+	<?php
+		session()->put('session_id', session()->getId());
+		session()->put('ip_address', request()->getClientIp());
+	?>
+
 	@guest
 		<p>You are currently logged out. Please login to access the website</p>
 		<a href='/login' class='btn btn-default' role='button'>Login</a>

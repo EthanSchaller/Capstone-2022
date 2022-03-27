@@ -1,7 +1,9 @@
 <?php
-  session()->put('session_id', session()->getId());
-  session()->put('ip_address', request()->getClientIp());
+  session_start();
 ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,13 +47,10 @@
               <li class="{{ Request::is('products/*') || Request::is('products') ? "active" : "" }}"><a href="/products">Products</a></li>
               <li class="{{ Request::is('categories/*') || Request::is('categories') ? "active" : "" }}"><a href="/categories">Categories</a></li>
               <li class="{{ Request::is('items/*') || Request::is('items') ? "active" : "" }}"><a href="/items">Items</a></li>
+              <li class="{{ Request::is('CompleteOrders/*') || Request::is('CompOrders') ? "active" : "" }}"><a href="/CompleteOrders">Complete Orders</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              @guest
-                <li class="{{ (Request::is('home/')) ? "active" : "" }}"><a href="/home">👤</a></li>
-              @else
-                <li class="{{ (Request::is('home/')) ? "active" : "" }}"><a href="/home">🧍</a></li>
-              @endguest
+              <li class="{{ (Request::is('home/')) ? "active" : "" }}"><a href="/home">🧍</a></li>
               <li class="{{ Request::is('cart/*') || Request::is('cart') ? "active" : "" }}"><a href="/cart">🛒</a></li>
             </ul>
           @else
@@ -59,7 +58,9 @@
               <li class="{{ (Request::is('home/')) ? "active" : "" }}"><a href="/home">Home</a></li>            
               <li class="{{ (Request::is('products/')) ? "active" : "" }}"><a href="/products">Products Page</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right"></ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="{{ (Request::is('home/')) ? "active" : "" }}"><a href="/home">👤</a></li>
+            </ul>
           @endif
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
