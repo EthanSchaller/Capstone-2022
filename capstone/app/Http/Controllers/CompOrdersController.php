@@ -10,9 +10,8 @@ use App\SoldItems;
 class CompOrdersController extends Controller
 {
     public function index() {
-        $soldItems = SoldItems::orderBy('id','ASC')->paginate(10);
-        $items = Item::orderBy('id','ASC')->paginate(10);
-        return view('orders.completeOrders')->with('soldItems',$soldItems)->with('items',$items);
+        $orders = OrderInfo::orderBy('id','ASC')->paginate(10);
+        return view('orders.completeOrders')->with('orders',$orders);
     }
 
     public function checkReceipt($id) {

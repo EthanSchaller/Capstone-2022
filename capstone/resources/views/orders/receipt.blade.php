@@ -81,7 +81,6 @@ Laravel Project
                         <td></td>
                         <td>${{ $ttlPrice }}</td>
                     </tbody>
-                    
                 </table>
             </div>
         </div>

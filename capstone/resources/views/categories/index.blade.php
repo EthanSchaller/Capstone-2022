@@ -29,7 +29,7 @@ Laravel Project
 			<div class="col-md-8 col-md-offset-2">
 				<table class="table">
 					<thead>
-						<th>#</th>
+						<th>Category ID</th>
 						<th>Name</th>
 						<th>Created At</th>
 						<th>Last Modified</th>
@@ -43,9 +43,9 @@ Laravel Project
 							<tr>
 								<th>{{ $i++ }}</th>
 								<td>{{ $category->category }}</td>
-								<td style='width:100px;'>{{ date('M j, Y', strtotime($category->created_at)) }}</td>
-								<td style='width:100px;'>{{ date('M j, Y', strtotime($category->updated_at)) }}</td>
-								<td style="width: 175px;"><div style='float:left; margin-right:5px;'><a href="{{ route('categories.edit', $category->id) }}" class="btn btn-success btn-sm">Edit</a></div><div style='float:left;'>
+								<td>{{ date('M j, Y', strtotime($category->created_at)) }}</td>
+								<td>{{ date('M j, Y', strtotime($category->updated_at)) }}</td>
+								<td><div style='float:left; margin-right:5px;'><a href="{{ route('categories.edit', $category->id) }}" class="btn btn-success btn-sm">Edit</a></div><div style='float:left;'>
 									<?php 
 										$i2 = 0;  
 										foreach($items as $item)

@@ -34,7 +34,7 @@ Laravel Project
 			<div class="col-md-8 col-md-offset-2">
 				<table class="table">
 					<thead>
-						<th>#</th>
+						<th>Item ID</th>
 						<th>Title</th>
 						<th>Created At</th>
 						<th>Last Modified</th>
@@ -46,11 +46,11 @@ Laravel Project
 						?>
 						@foreach ($items as $item)
 							<tr>
-								<th><a href='/items/{{ $item->id }}' class='btn btn-secondary' role='button'>{{ $i++ }}</a></th>
+								<th><a href='/items/{{ $item->id }}' class='btn btn-default' role='button'>{{ $i++ }}</a></th>
 								<td>{{ $item->title }}</td>
-								<td style="width: 100px;">{{ date('M j, Y', strtotime($item->created_at)) }}</td>
+								<td>{{ date('M j, Y', strtotime($item->created_at)) }}</td>
 								<td>{{ date('M j, Y', strtotime($item->updated_at)) }}</td>
-								<td style="width: 175px;"><div style='float:left; margin-right:5px;'><a href="{{ route('items.edit', $item->id) }}" class="btn btn-success btn-sm">Edit</a></div>
+								<td><div style='float:left; margin-right:5px;'><a href="{{ route('items.edit', $item->id) }}" class="btn btn-success btn-sm">Edit</a></div>
 								<div style='float:left;'>
 									{!! Form::open(['route' => ['items.destroy', $item->id], 'method'=>'DELETE']) !!}
 										{{ Form::submit('Delete', ['class'=>'btn btn-sm btn-danger btn-block', 'style'=>'', 'onclick'=>'return confirm("Are you sure?")']) }}
