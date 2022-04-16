@@ -62,18 +62,20 @@ Laravel Project
                             $ttlPrice = 0;    
                         ?>
                         @foreach($cart as $cartInfo)
-                            @foreach($items as $item)
-                                @if($item->id == $cartInfo->item_id)
-                                    <tr>
-                                        <td>{{ $item->title }}</td>
-                                        <td>{{ $cartInfo->quantity }}</td>
-                                        <?php 
-                                            $ttlPrice += $item->price * $cartInfo->quantity
-                                        ?>
-                                        <td>${{ $item->price * $cartInfo->quantity }}</td>
-                                    </tr>
-                                @endif
-                            @endforeach
+                            @if($order->session_id == $cartInfo->session)
+                                @foreach($items as $item)
+                                    @if($item->id == $cartInfo->item_id)
+                                        <tr>
+                                            <td>{{ $item->title }}</td>
+                                            <td>{{ $cartInfo->quantity }}</td>
+                                            <?php 
+                                                $ttlPrice += $item->price * $cartInfo->quantity
+                                            ?>
+                                            <td>${{ $item->price * $cartInfo->quantity }}</td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                            @endif
                         @endforeach
                     </tbody>
                     <tbody>

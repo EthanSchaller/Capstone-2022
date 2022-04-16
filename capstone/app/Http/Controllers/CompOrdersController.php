@@ -16,8 +16,8 @@ class CompOrdersController extends Controller
 
     public function checkReceipt($id) {
         $orders = OrderInfo::where('id', $id)->paginate(10);
-        $shopping_cart = ShoppingCart::where('session', session()->get('session_id'))->orderBy('id', 'ASC')->paginate(10);
-        $items = Item::orderBy('title','ASC')->paginate(10);
+        $shopping_cart = ShoppingCart::orderBy('id', 'ASC')->paginate();
+        $items = Item::orderBy('title','ASC')->paginate();
 
         return view('orders.receipt', ['items'=>$items,
                                 'cart'=>$shopping_cart,

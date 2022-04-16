@@ -2,8 +2,6 @@
   session_start();
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,8 +40,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           @if(Auth::user())
-            <ul class="nav navbar-nav">
-              <li class="{{ (Request::is('home/')) ? "active" : "" }}"><a href="/home">Home</a></li>            
+            <ul class="nav navbar-nav">       
               <li class="{{ Request::is('products/*') || Request::is('products') ? "active" : "" }}"><a href="/products">Products</a></li>
               <li class="{{ Request::is('categories/*') || Request::is('categories') ? "active" : "" }}"><a href="/categories">Categories</a></li>
               <li class="{{ Request::is('items/*') || Request::is('items') ? "active" : "" }}"><a href="/items">Items</a></li>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3307
--- Generation Time: Mar 27, 2022 at 07:21 AM
+-- Generation Time: Apr 16, 2022 at 08:44 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -46,7 +46,7 @@ INSERT INTO `categories` (`id`, `category`, `created_at`, `updated_at`, `deleted
 (4, 'Deletion tester', '2022-01-20 05:06:11', '2022-01-20 22:45:54', '2022-01-20 22:45:54'),
 (5, 'Deletion tester 2', '2022-01-20 22:51:12', '2022-01-20 23:34:39', '2022-01-20 23:34:39'),
 (6, 'Video Games 21', '2022-01-20 23:10:52', '2022-01-20 23:12:05', '2022-01-20 23:12:05'),
-(7, 'Delete Button tester', '2022-01-21 06:45:56', '2022-01-21 06:45:56', NULL);
+(7, 'Delete Button tester', '2022-01-21 06:45:56', '2022-03-28 05:08:48', '2022-03-28 05:08:48');
 
 -- --------------------------------------------------------
 
@@ -134,7 +134,21 @@ INSERT INTO `items_sold` (`id`, `id_item`, `id_order`, `ttlPrice`, `quantity`, `
 (377, 21, 160, 21.12, 1, '2022-03-27 06:35:06', '2022-03-27 06:35:06', NULL),
 (378, 1, 161, 279.86, 14, '2022-03-27 08:14:54', '2022-03-27 08:14:54', NULL),
 (379, 2, 161, 2243.49, 51, '2022-03-27 08:14:54', '2022-03-27 08:14:54', NULL),
-(380, 10, 161, 3039.62, 38, '2022-03-27 08:14:54', '2022-03-27 08:14:54', NULL);
+(380, 10, 161, 3039.62, 38, '2022-03-27 08:14:54', '2022-03-27 08:14:54', NULL),
+(381, 21, 162, 21.12, 1, '2022-03-28 05:28:16', '2022-03-28 05:28:16', NULL),
+(382, 10, 162, 2399.7, 30, '2022-03-28 05:28:16', '2022-03-28 05:28:16', NULL),
+(383, 22, 162, 699.86, 14, '2022-03-28 05:28:16', '2022-03-28 05:28:16', NULL),
+(384, 6, 162, 74.82, 3, '2022-03-28 05:28:16', '2022-03-28 05:28:16', NULL),
+(385, 1, 162, 919.54, 46, '2022-03-28 05:28:16', '2022-03-28 05:28:16', NULL),
+(386, 5, 162, 4967.28, 36, '2022-03-28 05:28:16', '2022-03-28 05:28:16', NULL),
+(387, 3, 162, 179.91, 9, '2022-03-28 05:28:16', '2022-03-28 05:28:16', NULL),
+(388, 4, 162, 386, 2, '2022-03-28 05:28:16', '2022-03-28 05:28:16', NULL),
+(389, 2, 162, 5058.85, 115, '2022-03-28 05:28:16', '2022-03-28 05:28:16', NULL),
+(390, 1, 163, 99.95, 5, '2022-04-16 20:49:48', '2022-04-16 20:49:48', NULL),
+(391, 1, 164, 19.99, 1, '2022-04-16 20:56:15', '2022-04-16 20:56:15', NULL),
+(392, 1, 165, 19.99, 1, '2022-04-16 20:57:47', '2022-04-16 20:57:47', NULL),
+(393, 1, 166, 19.99, 1, '2022-04-16 21:32:26', '2022-04-16 21:32:26', NULL),
+(394, 1, 167, 19.99, 1, '2022-04-16 21:38:18', '2022-04-16 21:38:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -185,7 +199,13 @@ CREATE TABLE `order_info` (
 
 INSERT INTO `order_info` (`id`, `fName`, `lName`, `phone`, `email`, `ip_address`, `session_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (160, 'Ethan', 'Schaller', '1-902-578-4570', 'ethanschaller99@gmail.com', '127.0.0.1', 'qYT3tfJKn6J9qZlgT09HGk5QsuI8G5YX9ydYdF4l', '2022-03-27 06:35:06', '2022-03-27 06:35:06', NULL),
-(161, 'Albert', 'Allister', '1-111-111-1111', 'alallister@gmail.com', '127.0.0.1', 'PQ4J1fQ2JOykEj45t3HCEASiFMWe9J64JcT7SKLM', '2022-03-27 08:14:53', '2022-03-27 08:14:53', NULL);
+(161, 'Albert', 'Allister', '1-111-111-1111', 'alallister@gmail.com', '127.0.0.1', 'PQ4J1fQ2JOykEj45t3HCEASiFMWe9J64JcT7SKLM', '2022-03-27 08:14:53', '2022-03-27 08:14:53', NULL),
+(162, 'Ethan', 'Schaller', '1-902-578-4570', 'ethanschaller99@gmail.com', '127.0.0.1', 'DbMVgHwSK1fjPPSaGCW6dMxNPUBPpVrdauuWiKa0', '2022-03-28 05:28:16', '2022-03-28 05:28:16', NULL),
+(163, 'Test', 'Order', '1234567890', 'tester@example.com', '127.0.0.1', 'snOr0e4l0pVFIyjv7TCMHcp6B9e4kyzkFgIyjQuz', '2022-04-16 20:49:48', '2022-04-16 20:49:48', NULL),
+(164, 'Test', 'Order2', '1234567890', 'tester@example.com', '127.0.0.1', 'snOr0e4l0pVFIyjv7TCMHcp6B9e4kyzkFgIyjQuz', '2022-04-16 20:56:14', '2022-04-16 20:56:14', NULL),
+(165, 'Test', 'Order3', '1234567890', 'tester@example.com', '127.0.0.1', 'snOr0e4l0pVFIyjv7TCMHcp6B9e4kyzkFgIyjQuz', '2022-04-16 20:57:46', '2022-04-16 20:57:46', NULL),
+(166, 'Test', 'Order4', '1234567890', 'tester@example.com', '127.0.0.1', 'snOr0e4l0pVFIyjv7TCMHcp6B9e4kyzkFgIyjQuz', '2022-04-16 21:32:26', '2022-04-16 21:32:26', NULL),
+(167, 'test', 'Order5', '1234567890', 'tester@example.com', '127.0.0.1', 'snOr0e4l0pVFIyjv7TCMHcp6B9e4kyzkFgIyjQuz', '2022-04-16 21:38:18', '2022-04-16 21:38:18', NULL);
 
 -- --------------------------------------------------------
 
@@ -249,7 +269,18 @@ INSERT INTO `shopping_cart` (`id`, `item_id`, `quantity`, `session`, `ip`, `crea
 (35, 21, 1, 'qYT3tfJKn6J9qZlgT09HGk5QsuI8G5YX9ydYdF4l', '127.0.0.1', '2022-03-27 06:34:52', '2022-03-27 06:34:52', NULL),
 (36, 1, 14, 'PQ4J1fQ2JOykEj45t3HCEASiFMWe9J64JcT7SKLM', '127.0.0.1', '2022-03-27 08:13:03', '2022-03-27 08:13:24', NULL),
 (37, 2, 51, 'PQ4J1fQ2JOykEj45t3HCEASiFMWe9J64JcT7SKLM', '127.0.0.1', '2022-03-27 08:13:07', '2022-03-27 08:13:19', NULL),
-(38, 10, 38, 'PQ4J1fQ2JOykEj45t3HCEASiFMWe9J64JcT7SKLM', '127.0.0.1', '2022-03-27 08:13:11', '2022-03-27 08:13:27', NULL);
+(38, 10, 38, 'PQ4J1fQ2JOykEj45t3HCEASiFMWe9J64JcT7SKLM', '127.0.0.1', '2022-03-27 08:13:11', '2022-03-27 08:13:27', NULL),
+(39, 21, 1, 'DbMVgHwSK1fjPPSaGCW6dMxNPUBPpVrdauuWiKa0', '127.0.0.1', '2022-03-28 05:25:43', '2022-03-28 05:25:43', NULL),
+(40, 10, 30, 'DbMVgHwSK1fjPPSaGCW6dMxNPUBPpVrdauuWiKa0', '127.0.0.1', '2022-03-28 05:25:47', '2022-03-28 05:27:25', NULL),
+(41, 22, 14, 'DbMVgHwSK1fjPPSaGCW6dMxNPUBPpVrdauuWiKa0', '127.0.0.1', '2022-03-28 05:25:52', '2022-03-28 05:27:29', NULL),
+(42, 6, 3, 'DbMVgHwSK1fjPPSaGCW6dMxNPUBPpVrdauuWiKa0', '127.0.0.1', '2022-03-28 05:25:57', '2022-03-28 05:27:33', NULL),
+(43, 1, 46, 'DbMVgHwSK1fjPPSaGCW6dMxNPUBPpVrdauuWiKa0', '127.0.0.1', '2022-03-28 05:26:02', '2022-03-28 05:27:37', NULL),
+(44, 5, 36, 'DbMVgHwSK1fjPPSaGCW6dMxNPUBPpVrdauuWiKa0', '127.0.0.1', '2022-03-28 05:26:08', '2022-03-28 05:27:40', NULL),
+(45, 3, 9, 'DbMVgHwSK1fjPPSaGCW6dMxNPUBPpVrdauuWiKa0', '127.0.0.1', '2022-03-28 05:26:17', '2022-03-28 05:27:45', NULL),
+(46, 4, 2, 'DbMVgHwSK1fjPPSaGCW6dMxNPUBPpVrdauuWiKa0', '127.0.0.1', '2022-03-28 05:26:21', '2022-03-28 05:27:48', NULL),
+(47, 2, 115, 'DbMVgHwSK1fjPPSaGCW6dMxNPUBPpVrdauuWiKa0', '127.0.0.1', '2022-03-28 05:27:18', '2022-03-28 05:27:52', NULL),
+(48, 1, 5, 'snOr0e4l0pVFIyjv7TCMHcp6B9e4kyzkFgIyjQuz', '127.0.0.1', '2022-04-16 20:49:21', '2022-04-16 20:53:21', '2022-04-16 20:53:21'),
+(49, 1, 1, 'snOr0e4l0pVFIyjv7TCMHcp6B9e4kyzkFgIyjQuz', '127.0.0.1', '2022-04-16 20:54:26', '2022-04-16 20:54:26', NULL);
 
 -- --------------------------------------------------------
 
@@ -376,7 +407,7 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `items_sold`
 --
 ALTER TABLE `items_sold`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=381;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=395;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -388,7 +419,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `order_info`
 --
 ALTER TABLE `order_info`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=162;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -400,7 +431,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `shopping_cart`
 --
 ALTER TABLE `shopping_cart`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `users`

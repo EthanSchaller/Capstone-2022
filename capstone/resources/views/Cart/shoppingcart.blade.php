@@ -10,9 +10,11 @@ Laravel Project
 
 @section('content')
     <?php
-        session()->put('session_id', session()->getId());
-        session()->put('ip_address', request()->getClientIp());
-
+        if (!session()->has('session_id')) {
+            session()->put('session_id', session_create_id());
+            session()->put('ip_address', request()->getClientIp());
+        }
+        
         $session = session()->get('session_id');
     ?>
 
